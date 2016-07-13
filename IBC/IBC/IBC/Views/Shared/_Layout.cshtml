@@ -1,0 +1,83 @@
+﻿@using IBC.Helpers
+@{
+    var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["Controller"].ToString().ToLower();
+    var action = HttpContext.Current.Request.RequestContext.RouteData.Values["Action"].ToString().ToLower();
+    var classPicture = @"home/index" == string.Format(@"{0}/{1}", controller, action) ? "navigation-picture" : "navigation-black";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="http://fonts.googleapis.com/css?family=Grand+Hotel" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Grand+Hotel" rel="stylesheet" type="text/css">
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/css/GSDK")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Datepicker/css")
+
+    @RenderSection("styles", required: false)
+
+</head>
+<body>
+    <div id="navbar-full">
+        <div id="navbar">
+            <nav class="navbar navbar-ct-azzure navbar-fixed-top navbar-static-top navbar-inverse navbar-semi-transparent" role="navigation">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navigation">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        @*@Html.ActionLink("IBC", "Index", "Home",null, htmlAttributes: new { @class = "navbar-brand" })*@
+                        <a class="navbar-brand" href="~/Home/Index/">
+                            <div class="logo">
+                                <img width="30" height="30" src="~/Images/logo_Small.gif" />
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="navbar-collapse collapse">
+                        @Html.Partial("_MenuPartial")
+                        @Html.Partial("_LoginPartial")
+                    </div>
+                </div><!--  end navbar -->
+            </nav>
+            <div class="img-src @classPicture">
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="main">
+
+        @*<div class="section section-gray-gradient section-cards">*@
+        <div class="section">
+            <div class="container">
+
+                @{
+                    Html.RenderPartial("_Alerts");
+                }
+                @RenderBody()
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/GSDK")
+    @Scripts.Render("~/Datepicker/js")
+    @RenderSection("scripts", required: false)
+
+
+</body>
+</html>

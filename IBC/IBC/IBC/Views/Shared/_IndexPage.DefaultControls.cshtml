@@ -1,0 +1,22 @@
+﻿@using IBC.Helpers
+
+<div class="table-responsive">
+    <table class="table table-condensed borderless">
+        <tr><td>&nbsp</td></tr>
+        <tr>
+            <td><h3>@ViewBag.ControllerName<small> @ViewBag.Title </small></h3></td>
+            <td class="col-md-3 col-xs-6">
+                @Html.TextBox("SearchString", null, new { placeholder = "Pesquisar por...", @class = "form-control", CurrentFilter = ViewBag.CurrentFilter as string })
+
+            </td>
+            @if (ViewBag.Title.ToString().ToUpper() == "INDEX")
+            {
+                <td>
+                    @Html.SubmitButton("Filtrar")
+                    @Html.ActionButton("Limpar", "Index", null, new { ColumnName = ViewBag.ColumnName, Ascendent = ViewBag.Ascendent, Search = string.Empty })
+                </td>
+                <td>@Html.ActionButton("Create New", "Create")</td>
+            }
+        </tr>
+    </table>
+</div>

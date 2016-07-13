@@ -1,0 +1,163 @@
+﻿@model PagedList.IPagedList<IBC.Models.ApplicationUserExt>
+@using IBC.Helpers
+
+@{
+    ViewBag.Title = "Index";
+    ViewBag.ControllerName = "Perfil de Usuário";
+}
+@Html.AntiForgeryToken()
+@{ Html.RenderPartial("_IndexPage.DefaultControls"); }
+
+<div class="table-responsive">
+    <table class="table table-striped table-condensed">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model[0].User.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].DataDeNascimento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Endereco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Numero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Complemento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Bairro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Cidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].TelefoneFixo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].TelefoneCelular)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].NaoPossuiCPF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].CPF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].NaoPossuiRG)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].RG)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].OutroDocumento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].OutroDocumentoDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].OutroDocumentoNumero)
+            </th>
+
+            @if (User.IsInRole("MasterMTF"))
+            {
+
+                <th>
+                    @Html.DisplayNameFor(model => model[0].UserProcessing.UserName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].CreationDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].ChangeDate)
+                </th>
+            }
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataDeNascimento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Endereco)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Numero)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Complemento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Bairro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TelefoneFixo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TelefoneCelular)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NaoPossuiCPF)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CPF)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NaoPossuiRG)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RG)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OutroDocumento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OutroDocumentoDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OutroDocumentoNumero)
+                </td>
+                @if (User.IsInRole("MasterMTF"))
+                {
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserProcessing.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreationDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ChangeDate)
+                    </td>
+                }
+                @Html.HiddenFor(modelItem => item.UserId)
+                @{ Html.RenderPartial("_IndexPage.ActionButtons", new IBC.Models.Views.ActionButtonsView { Id = new Guid(item.UserId) }); }
+            </tr>
+        }
+
+    </table>
+</div>
+@{Html.RenderPartial("_IndexPage.Paginator");}
+    </div>
+}

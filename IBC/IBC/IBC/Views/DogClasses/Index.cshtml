@@ -1,0 +1,69 @@
+﻿@model PagedList.IPagedList<IBC.Models.Views.DogClassView>
+@using pl = PagedList.Mvc;
+@using IBC.Helpers;
+
+@{
+    ViewBag.Title = "Index";
+    ViewBag.ControllerName = "Classes";
+}
+@using (Html.BeginForm())
+{
+    <div class="container-fluid">
+        @Html.AntiForgeryToken()
+        @{ Html.RenderPartial("_IndexPage.DefaultControls"); }
+
+        <div class="table-responsive">
+            <table class="table table-striped table-condensed">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model[0].DogClassParent)
+                    </th>
+                    <th>
+                        @Html.ActionLink(Html.DisplayNameFor(model => model[0].Description).ToHtmlString(), "Index", new { ColumnName = "Description", Ascendent = !ViewBag.Ascendent, CurrentFilter = ViewBag.CurrentFilter as string })
+                    </th>
+                    @if (User.IsInRole("MasterMTF"))
+                    {
+
+                        <th>
+                            @Html.DisplayNameFor(model => model[0].UserProcessing.UserName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model[0].CreationDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model[0].ChangeDate)
+                        </th>
+                    }
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DogClassParent.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        @if (User.IsInRole("MasterMTF"))
+                        {
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UserProcessing.UserName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreationDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ChangeDate)
+                            </td>
+                        }
+                        @{ Html.RenderPartial("_IndexPage.ActionButtons", new IBC.Models.Views.ActionButtonsView { Id = item.Id }); }
+                    </tr>
+                }
+
+            </table>
+        </div>
+        @{Html.RenderPartial("_IndexPage.Paginator");}
+    </div>
+}

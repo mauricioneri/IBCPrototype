@@ -1,0 +1,76 @@
+﻿@model IBC.Models.Views.DogClassView
+@using IBC.Helpers
+
+@{
+    ViewBag.Title = "Details";
+    ViewBag.ControllerName = "Classes";
+}
+<h4>@ViewBag.Title <small>@ViewBag.ControllerName</small></h4>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DogClassParent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DogClassParent.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DogAges)
+        </dt>
+        <dd>
+            <ul>
+                @foreach (var item in Model.DogAges)
+                {
+                    if (item.State)
+                    {
+                        <li>@Html.DisplayName(@item.Description)</li>
+                    }
+                }
+            </ul>
+        </dd>
+        @if (User.IsInAnyRole("MasterMTF"))
+        {
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserProcessing.UserName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserProcessingId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CreationDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CreationDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ChangeDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ChangeDate)
+            </dd>
+        }
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionButtonEditBig("Edit", "Edit", new { id = Model.Id })
+    @Html.ActionButtonBack("Back to List", "Index")
+</p>

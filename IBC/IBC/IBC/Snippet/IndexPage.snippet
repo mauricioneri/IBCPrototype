@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft/VisualStudio/2013/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>MVC Index Paged</Title>
+      <Author>Maurício Pontalti Neri</Author>
+      <Description>Base Index Body for paginated Page</Description>
+      <Shortcut>pindex</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Assembly>PagedList.dll</Assembly>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>PagedList</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>EntityName</ID>
+          <ToolTip>Name of Entity Model table</ToolTip>
+          <Default>Myentity</Default>
+        </Literal>
+      </Declarations>
+      <Code Language ="csharp" kind="method body">
+        <![CDATA[ public ActionResult Index(string ColumnName, bool? Ascendent, string CurrentFilter, string SearchString, int? page, int? PageSize)
+        {
+            if (string.IsNullOrEmpty(ColumnName))
+            {
+                ColumnName = "Description";
+                Ascendent = true;
+            }
+
+
+            if (SearchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                SearchString = CurrentFilter;
+            }
+
+            int pageSize = (PageSize ?? 10);
+            int pageNumber = (page ?? 1);
+
+            ViewBag.ColumnName = ColumnName;
+            ViewBag.Ascendent = Ascendent;
+            ViewBag.CurrentFilter = CurrentFilter;
+            ViewBag.PageSize = PageSize;
+
+            var retData = from d in db.$EntityName$
+                          select d;
+
+            if (!string.IsNullOrEmpty(SearchString))
+            {
+                retData = from d in db.$EntityName$
+                          where d.Description.Contains(SearchString) 
+                          select d;
+            }
+
+            switch (ColumnName)
+            {
+                case "Description":
+                    if (Convert.ToBoolean(Ascendent))
+                    {
+                        retData = retData.OrderBy(d => d.Description);
+                    }
+                    else
+                    {
+                        retData = retData.OrderByDescending(d => d.Description);
+                    }
+                    break;
+                case "ChangeDate":
+                    if (Convert.ToBoolean(Ascendent))
+                    {
+                        retData = retData.OrderBy(d => d.ChangeDate);
+                    }
+                    else
+                    {
+                        retData = retData.OrderByDescending(d => d.ChangeDate);
+                    }
+                    break;
+                default:
+                    retData = retData.OrderBy(d => d.Description);
+                    break;
+            }
+
+           
+
+            return View(retData.ToPagedList(pageNumber, pageSize));
+}]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

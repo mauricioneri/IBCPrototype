@@ -1,0 +1,20 @@
+﻿@model bool?
+
+
+@{
+    // make use of nullable class attribute values
+    var yesSelected = Model.HasValue && Model.Value ? "checked" : null;
+    var noSelected = (Model.HasValue && !Model.Value)
+    || (!Model.HasValue && ViewData.ModelMetadata.IsNullableValueType)
+    ? "active"
+    : null;
+    var noSelection = !Model.HasValue ? "active" : null;
+    // get the name of the ID - this is to support multiple fields
+    var valor = (noSelected == null) ? (yesSelected == null ? "false" : "true") : "false";
+    var htmlField = ViewData.TemplateInfo.HtmlFieldPrefix;
+
+
+}
+
+@Html.HiddenFor(model => model, new { value = valor })
+<input type="checkbox" data-toggle="switch" @yesSelected id="switchFor__@htmlField" onchange="javascript: $(function () { if ($('#switchFor__@htmlField:checked').length > 0) { $('#@htmlField').val(true); } else { $('#@htmlField').val(false); } });" />

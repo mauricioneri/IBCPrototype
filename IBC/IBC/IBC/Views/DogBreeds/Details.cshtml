@@ -1,0 +1,44 @@
+﻿@using IBC.Helpers
+@model IBC.Models.Views.DogBreedView
+           
+
+@{
+    ViewBag.Title = "Details";
+    ViewBag.ControllerName = "Raças";
+}
+<h4>@ViewBag.Title <small>@ViewBag.ControllerName</small></h4>
+
+
+<div>
+    <h4>DogBreed</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DogCategories)
+        </dt>
+
+        <dd>
+            <ul>
+                @foreach (var item in Model.DogCategories)
+                {
+                    if (item.State)
+                    {
+                        <li>@Html.DisplayName(@item.Description)</li>
+                    }
+                }
+            </ul>
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionButtonEditBig("Edit", "Edit", new { id = Model.Id })
+    @Html.ActionButtonBack("Back to List", "Index")
+</p>

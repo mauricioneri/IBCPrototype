@@ -1,0 +1,120 @@
+﻿@model IBC.Models.Dog
+@using IBC.Helpers
+@{
+    ViewBag.Title = "Delete";
+    ViewBag.ControllerName = "Cães";
+}
+<h4>@ViewBag.Title <small>@ViewBag.ControllerName</small></h4>
+
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Dog</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DogBreed.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DogBreed.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DogSex.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DogSex.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pedigree)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pedigree)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DtNascimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DtNascimento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaiId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaiId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AtivoExposicao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AtivoExposicao)
+        </dd>
+        @if (User.IsInRole("MasterMTF"))
+        {
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserProcessing.UserName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.UserProcessing.UserName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.CreationDate)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CreationDate)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ChangeDate)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ChangeDate)
+            </dd>
+        }
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            @Html.SubmitButton("Delete")
+            @Html.ActionButtonBack("Back to List", "Index")
+        </div>
+    }
+</div>

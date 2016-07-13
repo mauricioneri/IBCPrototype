@@ -1,0 +1,59 @@
+﻿@using IBC.Models
+@using IBC.Models.Views
+@using IBC.Helpers
+<ul class="nav navbar-nav">
+    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dogs<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li>@Html.ActionLink("Create", "Create", "Dogs")</li>
+                <li>@Html.ActionLink("View", "Index", "Dogs")</li>
+
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Eventos<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li> @Html.ActionLink("Criar", "Index", "Contests")</li>
+                <li> @Html.ActionLink("Inscrição", "Index", "Contests")</li>
+                <li> @Html.ActionLink("Encerrados", "Index", "Contests")</li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administration<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li>@Html.ActionLink("Categorias", "Index", "DogCategories")</li>
+                <li>@Html.ActionLink("Classes", "Index", "DogClasses")</li>
+                <li>@Html.ActionLink("Idades", "Index", "DogAges")</li>
+                <li>@Html.ActionLink("Raças", "Index", "DogBreeds")</li>
+                <li>@Html.ActionLink("Sexos", "Index", "DogSexes")</li>
+                <li>@Html.ActionLink("Tipos", "Index", "DogTypes")</li>
+
+                <li role="separator" class="divider"></li>
+                <li>@Html.ActionLink("Perfil Usuários", "Index", "UserProfile")</li>
+
+            </ul>
+        </li>
+    }
+    <li>@Html.ActionLink("About", "About", "Home")</li>
+    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+</ul>
+
+
+
+@if (ViewBag.Notifications != null)
+{
+    foreach (NotificationViewModel notification in ViewBag.Notifications)
+    {
+        <li>
+            <a href="#">
+                @notification.NotificationType
+                <span class="badge badge-@notification.BadgeClass">
+                    @notification.Count
+                </span>
+            </a>
+        </li>
+    }
+}

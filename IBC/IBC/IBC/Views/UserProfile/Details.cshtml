@@ -1,0 +1,186 @@
+﻿@model IBC.Models.ApplicationUserExt
+
+@{
+    ViewBag.Title = "Details";
+    ViewBag.ControllerName = "Perfil de Usuário";
+}
+<h4>@ViewBag.Title <small>@ViewBag.ControllerName</small></h4>
+
+<div>
+    <h4>ApplicationUserExt</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataDeNascimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataDeNascimento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Endereco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Endereco)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Numero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Numero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Complemento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Complemento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bairro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bairro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelefoneFixo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelefoneFixo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelefoneCelular)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelefoneCelular)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NaoPossuiCPF)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NaoPossuiCPF)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CPF)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CPF)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NaoPossuiRG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NaoPossuiRG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OutroDocumento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OutroDocumento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OutroDocumentoDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OutroDocumentoDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OutroDocumentoNumero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OutroDocumentoNumero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserProcessing.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserProcessingId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChangeDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChangeDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UserId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

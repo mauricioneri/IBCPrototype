@@ -1,0 +1,121 @@
+﻿@using IBC.Helpers
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Painel de controle</h2>
+
+
+@{
+    var IndexMode = (string)ViewBag.IndexMode.ToString();
+
+ 
+
+    <div class="container">
+        <ul class="nav nav-pills">
+            <li class="active" data-toggle="pill"><a href="#tabDogs">Cacorros</a></li>
+            <li><a href="#tabContests" data-toggle="pill">Contests</a></li>
+            <li><a href="#tabCadastros" data-toggle="pill">Cadastros</a></li>
+            <li><a href="#tabAdmin" data-toggle="pill">Admin</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane fade in active" id="tabDogs">
+                <br />
+                <p>
+                    @Html.ActionLink("Meus Dogs", "Index", "Dogs", new { @class = "btn btn-default" })
+                </p>
+            </div>
+            <div class="tab-pane fade" id="tabContests">
+                <br />
+                <p>
+                    Contest
+                </p>
+            </div>
+            <div class="tab-pane fade" id="tabCadastros">
+                <br />
+                <p>
+                    @Html.ActionButton("DogCategories", "Index", "DogCategories")
+                </p>
+                <p>
+                    @Html.ActionButton("DogClasses", "Index", "DogClasses")
+                </p>
+                <p>
+                    @Html.ActionButton("DogAges", "Index", "DogAges")
+                </p>
+                <p>
+                    @Html.ActionButton("Raças", "Index", "DogBreeds")
+                </p>
+                <p>
+                    @Html.ActionButton("Sexos", "Index", "DogSexes")
+                </p>
+                <p>
+                    @Html.ActionButton("DogTypes", "Index", "DogTypes")
+                </p>
+            </div>
+            <div class="tab-pane fade" id="tabAdmin">
+                <br />
+                <p>
+                    @Html.ActionLink("Meus Dogs", "Index", "Dogs", new { @class = "btn btn-default" })
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    @*@if (IndexMode == "IndexContests")
+        {
+            <li role="presentation" class="active"><a href="#">Contests</a></li>
+        }
+        else
+        {
+            <li role="presentation"><a href="@Html.Action("IndexContests")">Contests</a></li>
+        }
+
+        @if (User.IsInAnyRole("Admin,MasterMTF"))
+        {
+            if (IndexMode == "IndexAdministrativo")
+            {
+                <li role="presentation" class="active"><a href="#">Administrativo</a></li>
+            }
+            else
+            {
+                <li role="presentation"><a href="@Html.Action("IndexAdministrativo")">IndexAdministrativo</a></li>
+            }
+        }
+        @if (User.IsInRole("MasterMTF"))
+        {
+            if (IndexMode == "IndexDogs")
+            {
+                <li role="presentation" class="active"><a href="#">Dogs</a></li>
+            }
+            else
+            {
+                <li role="presentation"><a href="@Html.Action("IndexDogs")">Dogs</a></li>
+            }
+        }*@
+
+
+
+    @*switch (IndexMode)
+        {
+            case "IndexDogs":
+                @Html.Partial("IndexDogs")
+                break;
+            case "IndexContests":
+            @Html.Partial("IndexContests")
+                break;
+            case "IndexCadastro":
+            @Html.Partial("IndexCadastro")
+                break;
+            case "IndexAdministrativo":
+            @Html.Partial("IndexAdministrativo")
+                break;
+            default:
+                break;
+        }*@
+
+}
+
+@section Scripts {
+    @*@Scripts.Render("~/bundles/jqueryui")
+        @Scripts.Render("~/bundles/ibcControls")*@
+}

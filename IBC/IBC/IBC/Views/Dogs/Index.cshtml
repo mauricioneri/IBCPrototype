@@ -1,0 +1,120 @@
+﻿@model PagedList.IPagedList<IBC.Models.Dog>
+@using pl = PagedList.Mvc;
+@using IBC.Helpers;
+
+@{
+    ViewBag.Title = "Index";
+    ViewBag.ControllerName = "Cães";
+}
+@using (Html.BeginForm())
+{
+    <div class="container-fluid">
+        @Html.AntiForgeryToken()
+        @{ Html.RenderPartial("_IndexPage.DefaultControls"); }
+
+        <div class="table-responsive">
+            <table class="table table-striped table-condensed">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model[0].Category.Description)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model[0].DogBreed.Description)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model[0].DogSex.Description)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model[0].Pedigree)
+                    </th>
+                    <th>
+                        @Html.ActionLink(Html.DisplayNameFor(model => model[0].Name).ToHtmlString(), "Index", new { ColumnName = "Description", Ascendent = !ViewBag.Ascendent, CurrentFilter = ViewBag.CurrentFilter as string })
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model[0].DtNascimento)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model[0].PaiId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model[0].MaeId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model[0].AtivoExposicao)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model[0].UserProcessing.UserName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model[0].CreationDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model[0].ChangeDate)
+                    </th>
+                    @if (User.IsInRole("MasterMTF"))
+                    {
+
+                        <th>
+                            @Html.DisplayNameFor(model => model[0].UserProcessing.UserName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model[0].CreationDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model[0].ChangeDate)
+                        </th>
+                    }
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Category.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DogBreed.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DogSex.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Pedigree)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DtNascimento)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PaiId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MaeId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AtivoExposicao)
+                        </td>
+                        @if (User.IsInRole("MasterMTF"))
+                        {
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UserProcessing.UserName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreationDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ChangeDate)
+                            </td>
+                        }
+                        @{ Html.RenderPartial("_IndexPage.ActionButtons", new IBC.Models.Views.ActionButtonsView { Id = item.Id }); }
+                    </tr>
+                }
+
+            </table>
+        </div>
+        @{Html.RenderPartial("_IndexPage.Paginator");}
+    </div>
+}

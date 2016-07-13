@@ -1,0 +1,313 @@
+﻿@model IBC.Models.ApplicationUserExt
+@using IBC.Helpers
+@{
+    ViewBag.Title = "Create";
+    ViewBag.ControllerName = "Perfil de Usuário";
+}
+<h4>@ViewBag.Title <small>@ViewBag.ControllerName</small></h4>
+
+<h3>Finalize o cadastro para ter acesso as funcionalidades dos sistema.</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DataDeNascimento, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DataDeNascimento, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+                @Html.ValidationMessageFor(model => model.DataDeNascimento, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Endereco, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Endereco, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Endereco, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Numero, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Numero, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Numero, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Complemento, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Complemento, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Complemento, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Bairro, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Bairro, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Bairro, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cidade, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Cidade, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Cidade, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Estado, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CEP, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CEP, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CEP, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TelefoneFixo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TelefoneFixo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TelefoneFixo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TelefoneCelular, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TelefoneCelular, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TelefoneCelular, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NaoPossuiCPF, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.NaoPossuiCPF)
+                    @Html.ValidationMessageFor(model => model.NaoPossuiCPF, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CPF, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CPF, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CPF, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NaoPossuiRG, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.NaoPossuiRG)
+                    @Html.ValidationMessageFor(model => model.NaoPossuiRG, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RG, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RG, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RG, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OutroDocumento, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.OutroDocumento)
+                    @Html.ValidationMessageFor(model => model.OutroDocumento, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OutroDocumentoDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OutroDocumentoDescription, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OutroDocumentoDescription, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OutroDocumentoNumero, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OutroDocumentoNumero, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OutroDocumentoNumero, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AceitaComunicacaoPorEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(model => model.AceitaComunicacaoPorEmail, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AceitaComunicacaoPorEmail, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AceitaComunicacaoContestsPorEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(model => model.AceitaComunicacaoContestsPorEmail, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AceitaComunicacaoContestsPorEmail, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AceitaComunicacaoContestsResultadoPorEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(model => model.AceitaComunicacaoContestsResultadoPorEmail, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AceitaComunicacaoContestsResultadoPorEmail, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div>
+            @Html.HiddenFor(model => model.UserProcessingId)
+            @Html.HiddenFor(model => model.CreationDate)
+            @Html.HiddenFor(model => model.ChangeDate)
+            @Html.HiddenFor(m => m.UserId)
+            @Html.HiddenFor(model => model.ActionName)
+            @Html.HiddenFor(m => m.ControllerName)
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @Html.SubmitButton("Create")
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionButtonBack("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryMaskedinput")
+}
+
+<script>
+    $(document).ready(function () {
+        $("#CPF").mask("999.999.999-99");
+        $("#DataDeNascimento").mask("99/99/9999");
+        $("#CEP").mask("99999-999");
+        $("#TelefoneCelular").mask("(99) 9999-9999?9");
+        $("#TelefoneFixo").mask("(99) 9999-9999?9");
+
+        $("#DataDeNascimento").datepicker();
+
+
+        if ($("#OutroDocumento").is(":checked")) {
+            $("#OutroDocumentoDescription").prop("disabled", false);
+            $("#OutroDocumentoNumero").prop("disabled", false);
+        }
+        else {
+            $("#OutroDocumentoDescription").prop("disabled", true);
+            $("#OutroDocumentoNumero").prop("disabled", true);
+        }
+
+        if ($("#NaoPossuiCPF").is(":checked")) {
+            $("#CPF").prop("disabled", true);
+        }
+        else {
+            $("#CPF").prop("disabled", false);
+        }
+
+
+        if ($("#NaoPossuiRG").is(":checked")) {
+            $("#RG").prop("disabled", true);
+        }
+        else {
+            $("#RG").prop("disabled", false);
+        }
+
+    });
+
+
+
+    $("#NaoPossuiCPF").click(function () {
+        var $this = $(this);
+
+        if ($this.is(":checked")) {
+            $("#CPF").prop("disabled", true);
+        }
+        else {
+            $("#CPF").prop("disabled", false);
+        }
+    });
+
+    $("#NaoPossuiRG").click(function () {
+        var $this = $(this);
+
+        if ($this.is(":checked")) {
+            $("#RG").prop("disabled", true);
+        }
+        else {
+            $("#RG").prop("disabled", false);
+        }
+    });
+
+    $("#OutroDocumento").click(function () {
+        var $this = $(this);
+
+        if ($this.is(":checked")) {
+            $("#OutroDocumentoDescription").prop("disabled", false);
+            $("#OutroDocumentoNumero").prop("disabled", false);
+        }
+        else {
+            $("#OutroDocumentoDescription").prop("disabled", true);
+            $("#OutroDocumentoNumero").prop("disabled", true);
+        }
+    });
+
+    $("#TelefoneFixo").blur(function () {
+        var last = $(this).val().substr($(this).val().indexOf("-") + 1);
+        if (last.lenght == 5) {
+            var move = $(this).val().substr($(this).val().indexOfs("-") + 1, 1);
+            var lastFour = last.substr(1, 4);
+            var first = $(this).val().substr(0, 9);
+            $(this).val(first + move + ~"-" + lastFour);
+        }
+    });
+
+    $("#TelefoneCelular").on("blur", function () {
+        var last = $(this).val().substr($(this).val().indexOf("-") + 1);
+        if (last.lenght == 5) {
+            var move = $(this).val().substr($(this).val().indexOfs("-") + 1, 1);
+            var lastFour = last.substr(1, 4);
+            var first = $(this).val().substr(0, 9);
+            $(this).val(first + move + ~"-" + lastFour);
+        }
+    });
+</script>

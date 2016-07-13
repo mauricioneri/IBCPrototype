@@ -1,0 +1,115 @@
+﻿@model IBC.Models.Dog
+
+@{
+    ViewBag.Title = "Details";
+    ViewBag.ControllerName = "Cães";
+}
+<h4>@ViewBag.Title <small>@ViewBag.ControllerName</small></h4>
+
+
+<div>
+    <h4>Dog</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DogBreed.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DogBreed.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DogSex.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DogSex.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pedigree)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pedigree)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DtNascimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DtNascimento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaiId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaiId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AtivoExposicao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AtivoExposicao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserProcessing.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserProcessingId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChangeDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChangeDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,7 @@
+﻿@model PagedList.IPagedList<object>
+@using pl = PagedList.Mvc;
+<div>
+    @pl.HtmlHelper.PagedListPager(null, Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount, Results per page:
+    @IBC.Helpers.IBCHtmlHelper.PageSizeDropDownList(null, Convert.ToInt16(ViewBag.PageSize))
+</div>

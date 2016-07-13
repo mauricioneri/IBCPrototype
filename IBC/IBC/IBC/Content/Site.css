@@ -1,0 +1,65 @@
+﻿
+#navbar-full .navbar {
+    border-radius: 0 !important;
+    margin-bottom: 0;
+    z-index: 2;
+}
+
+.form-horizontal .checkbox{
+    padding-top:0 !important;
+}
+
+.navigation-picture {
+    height: 260px;
+    /*background-image: url('../Imagens/stock-photo-meeting-room-in-the-office-317086880.jpg') !important;*/
+    background-image: url('../Images/stock-vector-american-bulldog-guarding-an-abandoned-small-factory-50096809.jpg') !important;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    margin-top: 0;
+}
+
+
+.navigation-black {
+    height: 80px;
+    background-image: url('../Images/stock-vector-american-bulldog-guarding-an-abandoned-small-factory-50096809.jpg') !important;
+    background-color: black;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    margin-top: 0;
+}
+ 
+
+
+
+.navbar-semi-transparent{
+    padding-top: 15px;
+    background-color: rgba(0,0,0,.0);
+}
+.navbar-semi-transparent .navbar-brand, [class*="navbar-ct"] .navbar-brand{
+    color: #FFFFFF;
+    opacity: 0.45 !important;
+}
+.navbar-semi-transparent .navbar-brand:hover, .navbar-semi-transparent .navbar-brand:focus {
+    background-color: rgba(0, 0, 0, 0);
+    color: #5E5E5E;
+}
+.navbar-semi-transparent .nav .caret{
+    border-bottom-color: #FFFFFF;
+    border-top-color: #FFFFFF;
+}
+.navbar-semi-transparent .navbar-nav > li > a, [class*="navbar-ct"] .navbar-nav > li > a{
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+    text-align: center;
+}
+.navbar-semi-transparent .navbar-nav > li > a{
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
+}
+    
+.navbar-semi-transparent .navbar-brand:hover, .navbar-semi-transparent .navbar-brand:focus, [class*="navbar-ct"] .navbar-brand:hover, [class*="navbar-ct"] .navbar-brand:focus {
+    background-color: rgba(0, 0, 0, 0);
+    color: #FFFFFF;
+    
+}

@@ -1,0 +1,8 @@
+﻿@model IBC.Models.Views.ActionButtonsView
+@using IBC.Helpers
+@using IBC.Models.Views
+<td>
+    @Html.ActionButtonEdit("Edit", "Edit", new { id = Model.Id }).If(User.IsInAnyRole("MasterMTF,Admin"))
+    @Html.ActionButtonDetails("Details", "Details", new { id = Model.Id })
+    @Html.ActionButtonDelete("Delete", "Delete", new { id = Model.Id }).If(User.IsInAnyRole("MasterMTF,Admin"))
+</td>
